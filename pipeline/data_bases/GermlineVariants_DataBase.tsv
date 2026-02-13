@@ -1,0 +1,104 @@
+VariantName	hetero_num	homo_num	sample_num	freq	chrom	pos_GRCh38	ref	alt	gene	variant_type	transcript	exon/intron	HGVS_VariantName	PopFreq_GNOMAD_v3.1.2	ACMG_classification
+chr17-43063912-A-G	1	0	236	0.002	17	43063912	A	G	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 17	c.5114T>C(p.Leu1705Pro)	0.0	Патогенный
+chr17-43091495-CT-C	1	0	236	0.002	17	43091495	CT	C	BRCA1	frameshift	NM_007294.4	экзон 10	c.4035del(p.Glu1346LysfsTer20)	3.941e-05	Патогенный
+chr13-32339700-A-G	1	0	236	0.002	13	32339700	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.5345A>G(p.Gln1782Arg)	0.0	Вариант неясного значения
+chr13-32319207-A-G	1	0	236	0.002	13	32319207	A	G	BRCA2	synonymous SNV	NM_000059.4	экзон 3	c.198A>G(p.Gln66=)	0.0004335	Доброкачественный
+chr13-32346886-G-GT	1	0	236	0.002	13	32346886	G	GT	BRCA2	frameshift	NM_000059.4	экзон 13	c.6998dup(p.Pro2334ThrfsTer6)	6.579e-06	Патогенный
+chr17-43092932-G-A	1	0	236	0.002	17	43092932	G	A	BRCA1	nonsense SNV	NM_007294.4	экзон 10	c.2599C>T(p.Gln867Ter)	0.0	Патогенный
+chr17-43093508-CAGGTTCTTTACCTTCCATGAGTTGT-C	2	0	236	0.004	17	43093508	CAGGTTCTTTACCTTCCATGAGTTGT	C	BRCA1	frameshift	NM_007294.4	экзон 10	c.1998_2022del(p.Met669GlufsTer24)	0.0	Патогенный
+chr17-43115746-C-T	1	0	236	0.002	17	43115746	C	T	BRCA1	synonymous SNV	NM_007294.4	экзон 3	c.114G>A(p.Lys38=)	0.002959	Доброкачественный
+chr13-32331030-G-A	1	0	236	0.002	13	32331030	G	A	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 9	c.793G>A(p.Gly265Arg)	0.0	Вариант неясного значения
+chr17-43063928-T-C	1	0	236	0.002	17	43063928	T	C	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 17	c.5098A>G(p.Thr1700Ala)	0.0	Вариант неясного значения
+chr13-32332722-A-G	1	0	236	0.002	13	32332722	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 10	c.1244A>G(p.His415Arg)	1.314e-05	Вариант неясного значения
+chr13-32337299-A-C	1	0	236	0.002	13	32337299	A	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.2944A>C(p.Ile982Leu)	2.628e-05	Вероятно доброкачественный
+chr13-32339990-G-A	1	0	236	0.002	13	32339990	G	A	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.5635G>A(p.Glu1879Lys)	7.889e-05	Вероятно доброкачественный
+chr17-43082547-A-ATCAGGTTATGTTGCATGGTATCC	1	0	236	0.002	17	43082547	A	ATCAGGTTATGTTGCATGGTATCC	BRCA1	frameshift	NM_007294.4	экзон 12	c.4191_4213dup(p.Ile1405ArgfsTer8)	0.0	Патогенный
+chr13-32398489-A-T	2	0	236	0.004	13	32398489	A	T	BRCA2	nonsense	NM_000059.4	экзон 27	c.9976A>T(p.Lys3326Ter)	0.00601	Доброкачественный
+chr13-32394673-T-C	2	0	236	0.004	13	32394673	T	C	BRCA2	intronic SNV	NM_000059.4	интрон 24	c.9257-16T>C	0.006017	Доброкачественный
+chr13-32333270-A-G	1	0	236	0.002	13	32333270	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 10	c.1792A>G(p.Thr598Ala)	0.001708	Доброкачественный
+chr13-32344538-T-A	1	0	236	0.002	13	32344538	T	A	BRCA2	intronic SNV	NM_000059.4	интрон 11	c.6842-20T>A	0.0003615	Доброкачественный
+chr17-43104218-AGG-A	1	0	236	0.002	17	43104218	AGG	A	BRCA1	frameshift	NM_007294.4	экзон 6	c.343_344del(p.Pro115Ter)	0.0	Патогенный
+chr13-32340140-A-G	1	0	236	0.002	13	32340140	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.5785A>G(p.Ile1929Val)	0.000414	Доброкачественный
+chr13-32339641-T-G	1	0	236	0.002	13	32339641	T	G	BRCA2	nonsense	NM_000059.4	экзон 11	c.5286T>G(p.Tyr1762Ter)	6.572e-06	Патогенный
+chr13-32337871-G-A	2	0	236	0.004	13	32337871	G	A	BRCA2	synonymous SNV	NM_000059.4	экзон 11	c.3516G>A(p.Ser1172=)	0.002234	Доброкачественный
+chr17-43091492-T-C	3	0	236	0.006	17	43091492	T	C	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.4039A>G(p.Arg1347Gly)	0.004072	Доброкачественный
+chr13-32370430-G-A	1	0	236	0.002	13	32370430	G	A	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 19	c.8360G>A(p.Arg2787His)	2.631e-05	Доброкачественный
+chr13-32337238-G-A	3	0	236	0.006	13	32337238	G	A	BRCA2	synonymous SNV	NM_000059.4	экзон 11	c.2883G>A(p.Gln961=)	0.0008874	Доброкачественный
+chr13-32336654-A-C	1	0	236	0.002	13	32336654	A	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.2299A>C(p.Ser767Arg)	6.57e-06	Вероятно доброкачественный
+chr13-32340324-A-C	1	0	236	0.002	13	32340324	A	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.5969A>C(p.Asp1990Ala)	1.314e-05	Вариант неясного значения
+chr13-32337410-C-G	1	0	236	0.002	13	32337410	C	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.3055C>G(p.Leu1019Val)	0.0001249	Вариант неясного значения
+chr13-32341176-G-T	1	0	236	0.002	13	32341176	G	T	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.6821G>T(p.Gly2274Val)	0.001137	Доброкачественный
+chr17-43106487-A-C	1	0	236	0.002	17	43106487	A	C	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 4	c.181T>G(p.Cys61Gly)	3.285e-05	Патогенный
+chr17-43092970-G-A	1	0	236	0.002	17	43092970	G	A	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.2561C>T(p.Ala854Val)	0.0	Вариан неясного значения
+chr13-32339425-A-C	1	0	236	0.002	13	32339425	A	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.5070A>C(p.Lys1690Asn)	0.0002234	Вариант неясного значения
+chr17-43106487-A-G	1	0	236	0.002	17	43106487	A	G	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 4	c.181T>C(p.Cys61Arg)	0.0	Патогенный
+chr17-43106541-T-C	1	0	236	0.002	17	43106541	T	C	BRCA1	intronic SNV	NM_007294.4	интрон 3	c.135-8A>G	0.0	Вариант неясного значения
+chr17-43070958-C-T	15	0	236	0.032	17	43070958	C	T	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 15	c.4956G>A(p.Met1652Ile)	0.01383	Доброкачественный
+chr13-32339224-A-C	1	0	236	0.002	13	32339224	A	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.4869A>C(p.Gln1623His)	0.0	Вариант неясного значения
+chr17-43076474-T-C	3	0	236	0.006	17	43076474	T	C	BRCA1	intronic SNV	NM_007294.4	интрон 13	c.4484+14A>G	0.0003483	Доброкачественный
+chr17-43091990-C-T	1	0	236	0.002	17	43091990	C	T	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.3541G>A(p.Val1181Ile)	1.315e-05	Вероятно доброкачественный
+chr17-43124095-A-G	3	0	236	0.006	17	43124095	A	G	BRCA1	start-loss	NM_007294.4	экзон 2	c.2T>C(p.Met1?)	0.0	Патогенный
+chr17-43063903-G-A	3	0	236	0.006	17	43063903	G	A	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 17	c.5123C>T(p.Ala1708Val)	7.232e-05	Вероятно патогенный
+chr13-32338423-G-A	3	0	236	0.006	13	32338423	G	A	BRCA2	synonymous SNV	NM_000059.4	экзон 11	c.4068G>A(p.Leu1356=)	0.002781	Доброкачественный
+chr13-32332456-C-A	1	0	236	0.002	13	32332456	C	A	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 10	c.978C>A(p.Ser326Arg)	0.0007832	Доброкачественный
+chr17-43092096-A-G	4	0	236	0.008	17	43092096	A	G	BRCA1	synonymous SNV	NM_007294.4	экзон 10	c.3435T>C(p.Val1145=)	6.569e-06	Доброкачественный
+chr13-32337160-TAAAC-T	3	0	236	0.006	13	32337160	TAAAC	T	BRCA2	frameshift	NM_000059.4	экзон 11	c.2808_2811del(p.Ala938ProfsTer21)	1.314e-05	Патогенный
+chr13-32332832-CT-C	2	0	236	0.004	13	32332832	CT	C	BRCA2	frameshift	NM_000059.4	экзон 10	c.1355del(p.Leu452HisfsTer8)	0.0003483	Патогенный
+chr13-32339945-G-A	3	0	236	0.006	13	32339945	G	A	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.5590G>A(p.Asp1864Asn)	0.0	Вариант неясного клинического значения
+chr13-32338496-AAAG-A	3	0	236	0.006	13	32338496	AAAG	A	BRCA2	frameshift	NM_000059.4	экзон 11	c.4146_4148del(p.Glu1382del)	5.256e-05	Патогенный
+chr13-32356461-T-C	3	0	236	0.006	13	32356461	T	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 15	c.7469T>C(p.Ile2490Thr)	0.008975	Доброкачественный
+chr13-32394840-T-TA	1	0	236	0.002	13	32394840	T	TA	BRCA2	frameshift	NM_000059.4	экзон 25	c.9409dup(p.Thr3137AsnfsTer13)	0.0	Патогенный
+chr13-32316435-G-A	95	22	236	0.294	13	32316435	G	A	BRCA2	5'UTR SNV	NM_000059.4	экзон 1	c.-26G>A	0.2135	Доброкачественный
+chr13-32338162-T-C	66	6	236	0.165	13	32338162	T	C	BRCA2	synonymous SNV	NM_000059.4	экзон 11	c.3807T>C (p.Val1269Val)	0.1811	Доброкачественный
+chr13-32340868-G-C	0	226	236	0.958	13	32340868	G	C	BRCA2	synonymous SNV	NM_000059.4	экзон 11	c.6513G>C (p.Val2171Val)	0.9786	Доброкачественный
+chr13-32355250-T-C	0	225	236	0.953	13	32355250	T	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 14	c.7397T>C (p.Val2466Ala)	0.9806	Доброкачественный
+chr13-32362509-T-C	118	62	236	0.513	13	32362509	T	C	BRCA2	intronic SNV	NM_000059.4	интрон 16	c.7806-14T>C	0.537	Доброкачественный
+chr13-32379251-T-C	0	0	236	0.0	13	32379251	T	C	BRCA2	intronic SNV	NM_000059.4	интрон 21	c.8755-66T>C	0.5174	Доброкачественный
+chr17-43051212-TC-T	0	0	236	0.0	17	43051212	TC	T	BRCA1	intronic indel	NM_007294.4	интрон 19	c.5278-96del	6e-05	Доброкачественный
+chr17-43071031-A-G	10	0	236	0.021	17	43071031	A	G	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 15	c.4883T>C (p.Met1628Thr)	0.0011	Доброкачественный
+chr17-43093220-A-G	94	20	236	0.284	17	43093220	A	G	BRCA1	synonymous SNV	NM_007294.4	экзон 10	c.2311T>C (p.Leu771Leu)	0.2995	Доброкачественный
+chr17-43092418-T-C	93	21	236	0.286	17	43092418	T	C	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.3113A>G (p.Glu1038Gly)	0.3003	Доброкачественный
+chr17-43091983-T-C	92	21	236	0.284	17	43091983	T	C	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.3548A>G (p.Lys1183Arg)	0.3155	Доброкачественный
+chr17-43092919-G-A	93	22	236	0.29	17	43092919	G	A	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.2612C>T (p.Pro871Leu)	0.4871	Доброкачественный
+chr17-43097346-TA-T	0	0	236	0.0	17	43097346	TA	T	BRCA1	intronic indel	NM_007294.4	интрон 7	c.548-58del	0.2998	Доброкачественный
+chr17-43071077-T-C	92	22	236	0.288	17	43071077	T	C	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 15	c.4837A>G (p.Ser1613Gly)	0.3179	Доброкачественный
+chr17-43099914-G-A	0	0	236	0.0	17	43099914	G	A	BRCA1	intronic SNV	NM_007294.4	интрон 6	c.442-34C>T	0.1573	Доброкачественный
+chr13-32394606-G-A	0	0	236	0.0	13	32394606	G	A	BRCA2	intronic SNV	NM_000059.4	интрон 24	c.9257-83G>A	0.04047	Доброкачественный
+chr13-32398747-A-G	5	0	236	0.011	13	32398747	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 27	c.10234A>G (p.Ile3412Val)	0.03631	Доброкачественный
+chr17-43092412-C-T	2	0	236	0.004	17	43092412	C	T	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.3119G>A (p.Ser1040Asn)	0.01432	Доброкачественный
+chr13-32332343-A-C	26	0	236	0.055	13	32332343	A	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 10	c.865A>C (p.Asn289His)	0.114013	Доброкачественный
+chr13-32332592-A-C	98	10	236	0.25	13	32332592	A	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 10	c.1114A>C (p.Asn372His)	0.355957	Доброкачественный
+chr13-32337326-A-G	26	0	236	0.055	13	32337326	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.2971A>G (p.Asn991Asp)	0.113825	Доброкачественный
+chr13-32336584-T-C	26	0	236	0.055	13	32336584	T	C	BRCA2	synonymous SNV	NM_000059.4	экзон 11	c.2229T>C (p.His743His)	0.113806	Доброкачественный
+chr13-32336214-G-T	0	0	236	0.0	13	32336214	G	T	BRCA2	intronic SNV	NM_000059.4	интрон 10	c.1910-51G>T	0.113853	Доброкачественный
+chr13-32325251-A-C	0	0	236	0.0	13	32325251	A	C	BRCA2	intronic SNV	NM_000059.4	интрон 4	c.425+67A>C	0.114557	Доброкачественный
+chr13-32332843-A-G	26	0	236	0.055	13	32332843	A	G	BRCA2	synonymous SNV	NM_000059.4	экзон 10	c.1365A>G (p.Ser455Ser)	0.113966	Доброкачественный
+chr13-32336191 -T-C	0	0	236	0.0	13	32336191	T	C	BRCA2	intronic SNV	NM_000059.4	интрон 10	c.1910-74T>C	0.212688	Доброкачественный
+chr13-32379413-G-A	0	0	236	0.0	13	32379413	G	A	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 22	c.8851G>A (p.Ala2951Thr)	0.0501963	Доброкачественный
+chr13-32379825-A-G	0	0	236	0.0	13	32379825	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 23	c.9029A>G (p.His3010Arg)	0.0	Вариант неясного клинического значение
+chr17-43094464-T-C	24	2	236	0.059	17	43094464	T	C	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.1067A>G (p.Gln356Arg)	0.0654641	Доброкачественный
+chr13-32338613-G-T	3	0	236	0.006	13	32338613	G	T	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.4258G>T (p.Asp1420Tyr)	0.00776653	Доброкачественный
+chr17-43104071-A-G	0	0	236	0.0	17	43104071	A	G	BRCA1	intronic SNV	NM_007294.4	интрон 6	c.441+51T>C	0.000491159	Доброкачественный
+chr13-32326605-T-G	0	0	236	0.0	13	32326605	T	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 7	c.623T>G (p.Val208Gly)	0.000384025	Вариант неясного клинического значения
+chr17-43092965-A-G	2	0	236	0.004	17	43092965	A	G	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.2566T>C (p.Tyr856His)	0.0167308	Доброкачественный
+chr17-43093454-C-T	15	0	236	0.032	17	43093454	C	T	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.2077G>A (p.Asp693Asn)	0.0766629	Доброкачественный
+chr17-43091488-CCT-C	1	0	236	0.002	17	43091488	CCT	C	BRCA1	frameshift	NM_007294.4	экзон 10	c.4041_4042delAG (p.Gly1348Asnfs*7)	2.4122e-05	Патогенный
+chr17-43092274-A-C	0	0	236	0.0	17	43092274	A	C	BRCA1	stop gain	NM_007294.4	экзон 10	c.3257T>G (p.Leu1086*)	0.0	Патогенный
+chr13-32333398-CT-C	3	0	236	0.006	13	32333398	CT	C	BRCA2	intronic indel	NM_000059.4	интрон 10	c.1909+22delT	0.00123389	Доброкачественный
+chr13-32398801-C-G	0	0	236	0.0	13	32398801	C	G	BRCA2	3'UTR SNV	NM_000059.4	экзон 27	c.*31C>G	1.47e-05	Доброкачественный
+chr13-32398606-G-GTGAATTATA	1	0	236	0.002	13	32398606	G	GTGAATTATA	BRCA2	inframe insertion	NM_000059.4	экзон 27	c.10094_10095insGAATTATAT (p.Val3365_Ser3366insAsnTyrIle)	0.00058801	Вероятно доброкачественный
+chr17-43057062-T-TG	11	0	236	0.023	17	43057062	T	TG	BRCA1	frameshift	NM_007294.4	экзон 19	c.5266dupC (p.Gln1756fs)	5.87907e-05	Патогенный
+chr13-32333046-A-G	0	0	236	0.0	13	32333046	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 10	c.1568A>G (p.His523Arg)	0.001026	Вероятно доброкачественный
+chr13-32363389-G-T	5	0	236	0.011	13	32363389	G	T	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 18	c.8187G>T (p.Lys2729Asn)	0.012411	Доброкачественный
+chr17-43074471-C-A	2	0	236	0.004	17	43074471	C	A	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 14	c.4535G>T (p.Ser1512Ile)	0.00380636	Доброкачественный
+chr13-32340099-C-T	8	0	236	0.017	13	32340099	C	T	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.5744C>T (p.Thr1915Met)	0.0306092	Доброкачественный
+chr17-43124082-A-G	1	0	236	0.002	17	43124082	A	G	BRCA1	5'UTR SNV	NM_007294.4	экзон 1	c.-73T>C	0.00019216	Вероятно доброкачественный
+chr13-32332421-T-A	1	0	236	0.002	13	32332421	T	A	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 10	c.943T>A (p.Cys315Ser)	0.00519231	Доброкачественный
+chr17-43124137-T-C	0	0	236	0.0	17	43124137	T	C	BRCA1	Promoter SNV	NM_007294.4	промотор	c.-19-22A>G	6.541e-05	Вариант неясного клинического значения
+chr17-43092387-AC-A	0	0	236	0.0	17	43092387	AC	A	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.3143delG (p.Gly1048fs)	0.0	Патогенный
+chr13-32336705-A-G	0	0	236	0.0	13	32336705	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 11	c.2350A>G (p.Met784Val)	0.000611	Доброкачественный
+chr13-32356553-ATC-A	0	0	236	0.0	13	32356553	ATC	A	BRCA2	frameshift	NM_000059.4	экзон 15	c.7567_7568delCT (p.Leu2523fs)	6.57e-06	Патогенный
+chr17-43094129-T-C	0	0	236	0.0	17	43094129	T	C	BRCA1	nonsynonymous SNV	NM_007294.4	экзон 10	c.1402A>G (p.Lys468Glu)	0.0	Вариант неясного клинического значения
+chr13-32332992-T-C	0	0	236	0.0	13	32332992	T	C	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 10	c.1514T>C (p.Ile505Thr)	0.0010142	Доброкачественный
+chr13-32339554-C-T	6	0	236	0.013	13	32339554	C	T	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 10	c.5199C>T (p.Ser1733Ser)	0.00692871	Доброкачественный
+chr13-32398602-A-G	0	0	236	0.0	13	32398602	A	G	BRCA2	nonsynonymous SNV	NM_000059.4	экзон 27	c.10089A>G (p.Ile3363Met)	0.00041408	Доброкачественный

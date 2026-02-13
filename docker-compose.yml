@@ -1,0 +1,157 @@
+services:
+  # ========== API ==========
+  api:
+    build:
+      context: .
+      target: production
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - file_storage:/data/files
+      - ./pipeline/results:/app/pipeline/results:ro
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    networks:
+      - genenote-network
+
+  # ========== Kafka Init (configure topics) ==========
+  kafka-init:
+    image: apache/kafka:3.8.0
+    depends_on:
+      kafka:
+        condition: service_healthy
+    environment:
+      KAFKA_PARTITIONS: ${WORKER_REPLICAS:-5}
+    entrypoint: ["/bin/bash", "-c"]
+    command:
+      - |
+        echo "Configuring Kafka topics with $${KAFKA_PARTITIONS} partitions..."
+
+        # Create or update pipeline commands topic
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 \
+          --create --if-not-exists \
+          --topic genenote.pipeline.commands \
+          --partitions $${KAFKA_PARTITIONS} \
+          --replication-factor 1 || true
+
+        # Alter partitions if topic exists with fewer partitions
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 \
+          --alter --topic genenote.pipeline.commands \
+          --partitions $${KAFKA_PARTITIONS} 2>/dev/null || true
+
+        # Create events topic
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 \
+          --create --if-not-exists \
+          --topic genenote.pipeline.events \
+          --partitions $${KAFKA_PARTITIONS} \
+          --replication-factor 1 || true
+
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 \
+          --alter --topic genenote.pipeline.events \
+          --partitions $${KAFKA_PARTITIONS} 2>/dev/null || true
+
+        echo "Topics configured:"
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --describe
+        echo "Kafka init complete."
+    networks:
+      - genenote-network
+    restart: "no"
+
+  # ========== Worker ==========
+  worker:
+    build:
+      context: .
+      target: worker
+    volumes:
+      - file_storage:/data/files
+      - ./pipeline/results:/app/pipeline/results
+      - ./pipeline/uploaded:/app/pipeline/uploaded
+      - ./pipeline/references:/app/pipeline/references
+      - ./pipeline/data_bases:/app/pipeline/data_bases
+      - vep_cache:/app/vep_cache
+    env_file:
+      - .env
+    environment:
+      - HOME=/tmp
+      - XDG_CACHE_HOME=/tmp/.cache
+      - SNAKEMAKE_OUTPUT_CACHE=/tmp/.snakemake
+    depends_on:
+      db:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    networks:
+      - genenote-network
+    deploy:
+      replicas: ${WORKER_REPLICAS:-5}
+
+  # ========== PostgreSQL ==========
+  db:
+    image: postgres:16-alpine
+    env_file:
+      - .env
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U genenote"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - genenote-network
+
+  # ========== Kafka ==========
+  kafka:
+    image: apache/kafka:3.8.0
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      CLUSTER_ID: "genenote-kafka-cluster-01"
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+    networks:
+      - genenote-network
+
+  # ========== Kafka UI ==========
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - "${KAFKA_UI_PORT:-8080}:8080"
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=genenote
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+    depends_on:
+      - kafka
+    networks:
+      - genenote-network
+    profiles:
+      - kafka-ui
+
+volumes:
+  kafka_data:
+  file_storage:
+  vep_cache:
+
+networks:
+  genenote-network:
+    driver: bridge

@@ -1,0 +1,153 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Environments
+.env
+.env.local
+.env.*.local
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytype
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Docker
+docker-compose.override.yml
+
+# Local development
+.local/
+local/
+tmp/
+temp/
+
+# Data files (large genomic files)
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.vcf
+*.vcf.gz
+*.sam
+*.bed
+*.gtf
+*.gff
+
+# Keep data directory structure but ignore contents
+data/*
+!data/.gitkeep
+
+# Pipeline results (generated files)
+results/
+*.snakemake/
+.snakemake/
+
+# VEP cache (15GB+) - download separately
+vep_cache/
+
+# Genomic reference data (download via scripts/download_references.sh)
+pipeline/references/
+pipeline/uploaded/
+pipeline/results/
+GeneNote/
+snakemake/
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Secrets (never commit)
+*.pem
+*.key
+credentials.json
+secrets.json

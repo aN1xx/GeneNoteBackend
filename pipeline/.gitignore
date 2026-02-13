@@ -1,0 +1,20 @@
+# Reference genome files (8GB+) - download separately
+references/GRCh38/fasta_and_index/*.fa
+references/GRCh38/fasta_and_index/*.dict
+references/GRCh38/fasta_and_index/*.fai
+references/GRCh38/index_bwa-mem/*
+
+# Keep BED files and directory structure (small files)
+!references/.gitkeep
+!references/**/*.bed
+!references/**/*.txt
+!references/**/origin.txt
+
+# Working directories
+results/*
+!results/.gitkeep
+uploaded/*
+!uploaded/.gitkeep
+
+# Snakemake cache
+src/.snakemake/

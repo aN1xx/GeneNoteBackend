@@ -1,0 +1,60 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv/
+ENV/
+.eggs/
+*.egg-info/
+*.egg
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Mypy
+.mypy_cache/
+
+# Large pipeline reference files (mounted at runtime)
+pipeline/references/
+
+# Pipeline results (mounted as volume)
+pipeline/results/
+pipeline/uploaded/
+
+# Local data
+*.fastq
+*.fastq.gz
+*.bam
+*.bai
+*.vcf
+*.vcf.gz
+
+# Docs
+*.md
+!alembic/README
+
+# Docker
+.dockerignore
+docker-compose*.yml
+Dockerfile*
+
+# Misc
+.env
+.env.*
+*.log

@@ -1,0 +1,119 @@
+# Base image for worker with all bioinformatics tools pre-installed
+# Build once and push to registry, then use as base for worker builds
+
+FROM python:3.12-slim AS base
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    POETRY_VERSION=1.8.4 \
+    POETRY_HOME="/opt/poetry" \
+    POETRY_VIRTUALENVS_CREATE=false \
+    POETRY_NO_INTERACTION=1
+
+ENV PATH="$POETRY_HOME/bin:$PATH"
+
+WORKDIR /app
+
+# Install base dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    build-essential \
+    libpq-dev \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libgdk-pixbuf-2.0-0 \
+    libffi-dev \
+    shared-mime-info \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+# ========== Tool Builder Stages ==========
+
+FROM debian:bookworm-slim AS gatk-builder
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget unzip ca-certificates \
+    && rm -rf /var/lib/apt/lists/* \
+    && wget -q https://github.com/broadinstitute/gatk/releases/download/4.5.0.0/gatk-4.5.0.0.zip \
+    && unzip -q gatk-4.5.0.0.zip -d /opt/ \
+    && rm gatk-4.5.0.0.zip
+
+FROM debian:bookworm-slim AS ngsep-builder
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget ca-certificates \
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p /opt/ngsep \
+    && wget -q https://github.com/NGSEP/NGSEPcore/releases/download/v5.0.0/NGSEPcore_5.0.0.jar \
+       -O /opt/ngsep/NGSEPcore_5.0.0.jar
+
+FROM debian:bookworm-slim AS xatlas-builder
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates git cmake g++ make libhts-dev \
+    && rm -rf /var/lib/apt/lists/*
+RUN git clone --depth 1 https://github.com/jfarek/xatlas.git /tmp/xatlas \
+    && cd /tmp/xatlas && mkdir -p build && cd build \
+    && cmake .. && make -j$(nproc) \
+    && cp xatlas /usr/local/bin/
+
+FROM debian:bookworm-slim AS vt-builder
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates git g++ make zlib1g-dev libbz2-dev liblzma-dev libcurl4-openssl-dev \
+    autoconf automake libtool libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+RUN git clone --recurse-submodules --depth 1 https://github.com/atks/vt.git /tmp/vt \
+    && cd /tmp/vt \
+    && make -j$(nproc) \
+    && cp vt /usr/local/bin/
+
+FROM debian:bookworm-slim AS vep-builder
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates git curl \
+    perl libdbi-perl libdbd-mariadb-perl libwww-perl libjson-perl \
+    && rm -rf /var/lib/apt/lists/*
+RUN git clone --depth 1 --branch release/113 https://github.com/Ensembl/ensembl-vep.git /opt/vep \
+    && cd /opt/vep \
+    && perl INSTALL.pl --AUTO a --NO_HTSLIB --NO_TEST --DESTDIR /opt/vep \
+    && rm -rf /opt/vep/.git
+RUN git clone --depth 1 --branch release/113 https://github.com/Ensembl/ensembl.git /opt/ensembl \
+    && git clone --depth 1 --branch release/113 https://github.com/Ensembl/ensembl-io.git /opt/ensembl-io \
+    && git clone --depth 1 --branch release/113 https://github.com/Ensembl/ensembl-variation.git /opt/ensembl-variation \
+    && git clone --depth 1 --branch release/113 https://github.com/Ensembl/ensembl-funcgen.git /opt/ensembl-funcgen \
+    && rm -rf /opt/ensembl/.git /opt/ensembl-io/.git /opt/ensembl-variation/.git /opt/ensembl-funcgen/.git
+RUN mkdir -p /opt/vep_cache
+
+# ========== Final Worker Base ==========
+FROM base AS worker-base
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    fastp \
+    bwa \
+    samtools \
+    bcftools \
+    tabix \
+    bedtools \
+    default-jre-headless \
+    libhts3 \
+    perl \
+    libdbi-perl \
+    libbio-perl-perl \
+    liblist-moreutils-perl \
+    libwww-perl \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=gatk-builder /opt/gatk-4.5.0.0 /opt/gatk-4.5.0.0
+RUN ln -s /opt/gatk-4.5.0.0/gatk /usr/local/bin/gatk
+
+COPY --from=ngsep-builder /opt/ngsep /opt/ngsep
+COPY --from=xatlas-builder /usr/local/bin/xatlas /usr/local/bin/xatlas
+COPY --from=vt-builder /usr/local/bin/vt /usr/local/bin/vt
+COPY --from=vep-builder /opt/vep /opt/vep
+COPY --from=vep-builder /opt/vep_cache /app/vep_cache
+COPY --from=vep-builder /opt/ensembl /opt/ensembl
+COPY --from=vep-builder /opt/ensembl-io /opt/ensembl-io
+COPY --from=vep-builder /opt/ensembl-variation /opt/ensembl-variation
+COPY --from=vep-builder /opt/ensembl-funcgen /opt/ensembl-funcgen
+RUN ln -s /opt/vep/vep /usr/local/bin/vep
+
+ENV PERL5LIB="/opt/vep/modules:/opt/ensembl/modules:/opt/ensembl-io/modules:/opt/ensembl-variation/modules:/opt/ensembl-funcgen/modules:${PERL5LIB}"

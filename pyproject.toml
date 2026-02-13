@@ -1,0 +1,144 @@
+[tool.poetry]
+name = "genenote-backend"
+version = "0.1.0"
+description = "FastAPI backend for genetic laboratory pipeline management system"
+authors = ["Your Name <your.email@example.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.0"
+uvicorn = {extras = ["standard"], version = "^0.32.0"}
+pydantic = "^2.10.0"
+pydantic-settings = "^2.6.0"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.36"}
+asyncpg = "^0.30.0"
+alembic = "^1.14.0"
+aiokafka = "^0.12.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+bcrypt = "^4.0.0"
+python-multipart = "^0.0.17"
+aiofiles = "^24.1.0"
+snakemake = "^7.32.0"
+pulp = "2.7.0"
+pysam = "^0.22.0"
+pyyaml = "^6.0"
+pandas = "^2.2.0"
+weasyprint = "^63.0"
+jinja2 = "^3.1.4"
+email-validator = "^2.3.0"
+reportlab = "^4.4.5"
+pypdf2 = "^3.0.1"
+pdfrw = "^0.4"
+sqladmin = "0.19.0"
+itsdangerous = "^2.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+pytest-asyncio = "^0.24.0"
+pytest-cov = "^6.0.0"
+httpx = "^0.28.0"
+factory-boy = "^3.3.0"
+faker = "^33.0.0"
+ruff = "^0.8.0"
+mypy = "^1.13.0"
+pre-commit = "^4.0.0"
+types-aiofiles = "^25.1.0.20251011"
+types-PyYAML = "^6.0.12"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "alembic/versions",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+    "ARG",    # flake8-unused-arguments
+    "SIM",    # flake8-simplify
+    "TCH",    # flake8-type-checking
+    "PTH",    # flake8-use-pathlib
+    "ERA",    # eradicate
+    "PL",     # pylint
+    "RUF",    # ruff-specific rules
+]
+ignore = [
+    "E501",   # line too long (handled by formatter)
+    "B008",   # do not perform function calls in argument defaults
+    "PLR0913", # too many arguments
+    "PLR2004", # magic value comparison
+    "PLR0911", # too many return statements (needed for from_string enums)
+    "ARG001", # unused function argument (FastAPI dependencies for auth)
+    "ARG002", # unused method argument (planned for future use)
+    "RUF001", # ambiguous characters (cyrillic in russian strings)
+    "RUF012", # mutable class attributes (TSV column mappings)
+    "PLC0415", # import not at top level (avoiding circular imports)
+    "PLW0603", # global statement (singleton pattern for Kafka producer)
+    "ERA001", # commented-out code (temporary during development)
+    "PTH123", # open() instead of Path.open() (readability preference)
+    "SIM102", # nested if statements (more readable in validation logic)
+    "PLR0912", # too many branches (acceptable for complex file handling)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.12"
+strict = false
+ignore_missing_imports = true
+exclude = ["alembic/", "tests/"]
+disallow_untyped_defs = false
+disallow_untyped_calls = false
+check_untyped_defs = true
+warn_return_any = false
+no_implicit_optional = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "yaml"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["src/infrastructure/database/migrations/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

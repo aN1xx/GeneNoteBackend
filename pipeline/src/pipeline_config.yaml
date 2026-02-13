@@ -1,0 +1,19 @@
+# Results
+base_results_dirpath: ../results # Modify
+# Updatable input
+AnnotatedVariantDataBase_filepath: ../data_bases/GermlineVariants_DataBase.tsv # Do not modify
+ArtifactsDataBase_filepath: ../data_bases/GermlineArtifacts_DataBase.tsv # Do not modify
+# Unchangable input
+genome_fasta_filepath: ../references/GRCh38/fasta_and_index/GRCh38.fa # Do not modify
+genome_FASTAIndex_prefix: ../references/GRCh38/index_bwa-mem/GRCh38 # Do not modify
+PrimerCoords_bed_filepath: ../references/primers_Quasar-BRCA/primers_Quasar-BRCA.bed # Do not modify
+VariantCallingIntervals_filepath: ../references/Quasar-BRCA_intervals/Quasar-BRCA_intervals.bed # Do not modify
+genes_bed_filepath: ../references/gene_intervals/BRCA_genes.bed # Do not modify
+# External tools
+ngsep_jar_filepath: /opt/ngsep/NGSEPcore_5.0.0.jar # Path to NGSEP JAR in Docker
+vep_cache_dir: /app/vep_cache # VEP cache directory (download with scripts/download_vep_cache.sh)
+vep_use_cache: true # Offline mode - uses local cache (faster, no internet needed)
+# Scripts
+FlagsFixing_script_filepath: ./fix_BAM_flags.py # Do not modify
+xatlas_merging_script_filepath: ./merge_xAtlas_VCFs.py # Do not modify
+MakingVariantTable_script_filepath: ./make_VariantTable.py # Do not modify
